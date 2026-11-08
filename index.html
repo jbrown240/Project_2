@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counter App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+    .container {
+      text-align: center;
+    }
+    #value {
+      font-size: 5rem;
+      display: block;
+      margin: 1rem 0;
+      color: #333;
+    }
+    button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1.25rem;
+      margin: 0 0.25rem;
+      cursor: pointer;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: white;
+    }
+    button:hover {
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Counter</h1>
+    <span id="value">0</span>
+    <div class="btn-container">
+      <button id="decrease-btn">Decrease</button>
+      <button id="reset-btn">Reset</button>
+      <button id="increase-btn">Increase</button>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const valueDisplay = document.getElementById("value");
+
+    document.getElementById("decrease-btn").addEventListener("click", () => {
+      count--;
+      updateDisplay();
+    });
+
+    document.getElementById("reset-btn").addEventListener("click", () => {
+      count = 0;
+      updateDisplay();
+    });
+
+    document.getElementById("increase-btn").addEventListener("click", () => {
+      count++;
+      updateDisplay();
+    });
+
+    function updateDisplay() {
+      valueDisplay.textContent = count;
+      if (count > 0) {
+        valueDisplay.style.color = "green";
+      } else if (count < 0) {
+        valueDisplay.style.color = "red";
+      } else {
+        valueDisplay.style.color = "#333";
+      }
+    }
+  </script>
+</body>
+</html>
